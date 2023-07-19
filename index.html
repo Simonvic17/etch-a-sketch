@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Etch A Sketch</title>
+</head>
+<body>
+    <h2 class="title">Etch-a-sketch</h2>
+    <div class="top">
+        <div class="left">
+            <p>Pen Color</p>
+            <input id="color" type="color" value="#0000FF">
+            <p >Background Color</p>
+            <input id="bg-color" type="color" value="#FFFFFF" >
+            <button id="rainBow">Rainbow Color</button>
+            <button id="erase">Erase</button>
+            <button id="resetColor">Reset Color</button>
+            <div id="sizeValue" class="size-value">20 x 20</div>
+        <input id="sizeSlider" type="range" value="20" min="4" max="100" />
+        </div>
+        <div id="grid" class="grid" draggable="false"></div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
