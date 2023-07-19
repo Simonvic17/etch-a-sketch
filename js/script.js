@@ -1,15 +1,18 @@
 const DEFAULT_SIZE = 20
 const DEFAULT_COLOR = '#0000FF'
 const DEFAULT_MODE = 'color'
+const DEFAULT_BG_COLOR = '#FFFFFF'
 const grid = document.getElementById('grid')
 const pickColor = document.getElementById("color")
 const rainbowColor = document.getElementById("rainBow")
 const eraseColor = document.getElementById("erase")
 const resetColor = document.getElementById('resetColor')
+const sizeInput = document.getElementById('size')
 
 let currentSize = DEFAULT_SIZE
 let currentColor = DEFAULT_COLOR
 let currentMode = DEFAULT_MODE
+let currentBgColor = DEFAULT_BG_COLOR
 
 function setCurrentColor(newColor) {
     currentColor = newColor
@@ -18,6 +21,16 @@ function setCurrentColor(newColor) {
 function setCurrentMode(newMode) {
     activateButton(newMode)
     currentMode = newMode
+}
+
+let color = document.getElementById('bg-color')
+color.addEventListener("input", ()=>{
+ let bgColor = grid.style.background = color.value
+  setBgColor(bgColor)
+})
+
+function setBgColor(newBg) {
+  currentBgColor = newBg
 }
 
 function setGrid(size) {
@@ -58,6 +71,8 @@ pickColor.onclick = () => setCurrentMode('color')
 rainbowColor.onclick = () => setCurrentMode('rainbow')
 eraseColor.onclick = () => setCurrentMode("eraser")
 resetColor.onclick = () => reloadGrid()
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+sizeSlider.onchange = (e) => changeSize(e.target.value)
 
 
 function reloadGrid() {
@@ -65,6 +80,21 @@ function reloadGrid() {
     clearGrid()
     setGrid(currentSize)
 }
+
+
+function setCurrentSize(newSize) {
+    currentSize = newSize
+  }
+
+function changeSize(value) {
+    setCurrentSize(value)
+    updateSizeValue(value)
+    reloadGrid()
+}
+  
+  function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`
+  }
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
@@ -83,7 +113,7 @@ function changeColor(e) {
             e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})` 
             break;
         case 'eraser':
-            e.target.style.backgroundColor = "#FFFFFF"; 
+            e.target.style.backgroundColor = currentBgColor; 
             break;
         default:
             break;
