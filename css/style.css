@@ -71,6 +71,6 @@ input {
     margin-top: 0;
 }
 .grid-el {
-    /* border: 1px solid gray; */
+    border: 1px solid gray;
     user-select: none;
 }
