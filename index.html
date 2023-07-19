@@ -10,15 +10,21 @@
     <h2 class="title">Etch-a-sketch</h2>
     <div class="top">
         <div class="left">
-            <p>Pen Color</p>
-            <input id="color" type="color" value="#0000FF">
-            <p >Background Color</p>
-            <input id="bg-color" type="color" value="#FFFFFF" >
+            <div>
+                <p>Pen Color</p>
+                <input id="color" type="color" value="#0000FF">
+            </div>
+            <div>
+                <p id="bg">Background Color</p>
+                <input id="bg-color" type="color" value="#FFFFFF" >
+            </div>
             <button id="rainBow">Rainbow Color</button>
             <button id="erase">Erase</button>
             <button id="resetColor">Reset Color</button>
-            <div id="sizeValue" class="size-value">20 x 20</div>
-        <input id="sizeSlider" type="range" value="20" min="4" max="100" />
+            <div class="slide">
+                <p id="sizeValue" class="size-value">20 x 20</p>
+                <input id="sizeSlider" type="range" value="20" min="4" max="100" />
+            </div>
         </div>
         <div id="grid" class="grid" draggable="false"></div>
     </div>

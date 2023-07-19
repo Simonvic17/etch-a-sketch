@@ -32,7 +32,7 @@ color.addEventListener("input", ()=>{
 function setBgColor(newBg) {
   currentBgColor = newBg
 }
-
+// Function that generates grids in html
 function setGrid(size) {
     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
@@ -96,6 +96,7 @@ function changeSize(value) {
     sizeValue.innerHTML = `${value} x ${value}`
   }
 
+// Track mouse to change color
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
@@ -120,6 +121,7 @@ function changeColor(e) {
     }
 }
 
+// Activate Button alternatively
 function activateButton(newMode) {
     if (currentMode === 'rainbow') {
       rainbowColor.classList.remove('active')
