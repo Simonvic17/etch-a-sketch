@@ -5,6 +5,7 @@ const grid = document.getElementById('grid')
 const pickColor = document.getElementById("color")
 const rainbowColor = document.getElementById("rainBow")
 const eraseColor = document.getElementById("erase")
+const resetColor = document.getElementById('resetColor')
 
 let currentSize = DEFAULT_SIZE
 let currentColor = DEFAULT_COLOR
@@ -56,6 +57,14 @@ pickColor.oninput = (e) => setCurrentColor(e.target.value)
 pickColor.onclick = () => setCurrentMode('color')
 rainbowColor.onclick = () => setCurrentMode('rainbow')
 eraseColor.onclick = () => setCurrentMode("eraser")
+resetColor.onclick = () => reloadGrid()
+
+
+function reloadGrid() {
+    let clearGrid = () => (grid.innerHTML = '')
+    clearGrid()
+    setGrid(currentSize)
+}
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
